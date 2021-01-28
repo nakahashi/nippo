@@ -1,0 +1,14 @@
+# 本日の業務
+
+<% today_items.each do |item| -%>
+* <%= item.summary %>
+<% end -%>
+
+# <%= tomorrow_name %>の予定
+
+<% tomorrow_items.each do |item| -%>
+* <%= item.summary %>
+<% end -%>
+
+# 一言
+<%= hitokoto %>
