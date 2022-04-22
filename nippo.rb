@@ -81,8 +81,12 @@ service.authorization = authorize
 #   puts item.summary
 # end
 
+require 'yaml'
+settings = open('settings.yml', 'r') { |f| YAML.load(f) }
+calendar_id = settings.fetch(:calendar_id)
+
 require "./lib/calendar"
-calendar = Calendar.new(service, "hoge@example.com")
+calendar = Calendar.new(service, calendar_id)
 
 today_items = calendar.event_items(start_date)
 tomorrow_items = calendar.event_items(end_date)
