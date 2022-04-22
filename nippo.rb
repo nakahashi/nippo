@@ -82,7 +82,7 @@ service.authorization = authorize
 # end
 
 require 'yaml'
-settings = open('settings.yml', 'r') { |f| YAML.load(f) }
+settings = open('.settings.yml', 'r') { |f| YAML.load(f) }
 calendar_id = settings.fetch(:calendar_id)
 
 require "./lib/calendar"

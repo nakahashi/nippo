@@ -1,5 +1,6 @@
 credentials.json
 token.yaml
+.settings.yml
 
 # Created by https://www.gitignore.io/api/vim,ruby,macos,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=vim,ruby,macos,visualstudiocode
