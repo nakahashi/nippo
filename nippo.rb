@@ -81,19 +81,11 @@ service.authorization = authorize
 #   puts item.summary
 # end
 
-# Fetch the next 10 events for the user
-calendar_id = 'hoge@example.com'
+require "./lib/calendar"
+calendar = Calendar.new(service, "hoge@example.com")
 
-today_items = service.list_events(calendar_id,
-                               single_events: true,
-                               time_min: start_date.beginning_of_day.iso8601,
-                               time_max: start_date.end_of_day.iso8601,
-                               order_by: 'startTime').items
-tomorrow_items = service.list_events(calendar_id,
-                               single_events: true,
-                               time_min: end_date.beginning_of_day.iso8601,
-                               time_max: end_date.end_of_day.iso8601,
-                               order_by: 'startTime').items
+today_items = calendar.event_items(start_date)
+tomorrow_items = calendar.event_items(end_date)
 
 if option[:end_date]
   tomorrow_name = end_date.strftime("%m/%d")
