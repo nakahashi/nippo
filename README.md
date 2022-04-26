@@ -25,10 +25,10 @@ Googleカレンダーから情報を取得し、以下のような日報を生�
 
 * [Google Calendar APIのクイックスタートの記事](https://developers.google.com/calendar/quickstart/ruby) の `Step 1` を参考に、このリポジトリ内に `credentials.json` を作成
 * `make`
-* `./nippo.rb`
-  - 初回だけキー作成を行う必要があるので、案内に従って作成（ `token.yaml` が作られます）
 * `make init`
   - `.settings.yml` が作られるので、ファイルの中の例に従って `calendar_id` を更新してください
+* `./nippo.rb`
+  - 初回だけキー作成を行う必要があるので、案内に従って作成（ `token.yaml` が作られます）
 
 # 参考
 このツールの作成記です
