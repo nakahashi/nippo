@@ -1,2 +1,5 @@
 ---
 :calendar_id: hoge@example.com
+:negative_titles:
+  - "ここに日報に取り上げない予定名を入れる"
+  - "複数登録可能です"

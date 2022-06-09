@@ -1,7 +1,8 @@
 class Calendar
-  def initialize(service, calendar_owner_id)
+  def initialize(service, calendar_owner_id, negative_titles)
     @service = service
     @calendar_id = calendar_owner_id
+    @negative_titles = negative_titles
   end
 
   def event_items(date)
@@ -14,12 +15,18 @@ class Calendar
     ).items
 
     # メソッドチェーンにしたかったのに間違えた
-    only_publish_items = remove_private_items(items)
-    filter_accepted_items(only_publish_items)
+    items = remove_private_items(items)
+    items = remove_negative_title_items(items) if @negative_titles.present?
+
+    filter_accepted_items(items)
   end
 
   def remove_private_items(items)
     items.filter { |item| item.visibility != "private" }
+  end
+
+  def remove_negative_title_items(items)
+    items.filter { |item| !@negative_titles.include?(item.summary) }
   end
 
   def filter_accepted_items(items)
